@@ -4,7 +4,7 @@
   box-sizing: border-box;
   font-weight: 1000;
   font-size: 4vh;
-  color: rgba(0, 0, 255);
+  color: rgb(16, 16, 218);
 }
 
 body {
@@ -18,34 +18,18 @@ body {
   height: auto;
   border: 1vh solid grey;
   padding-left: 1%;
-  display: grid;
 }
 
-.container:hover .plus {
-  opacity: 1;
-  position: absolute;
-  top: 42%;
-  right: 10%;
-  width: 4vh;
-  cursor: pointer;
-}
-
-input:checked .plus {
-  transform: rotate(45deg);
-
-  transition: transform 0.3s ease-in-out;
+h2 {
+  color: black;
 }
 
 label:active img {
   opacity: 0.2;
 }
 
-label:active {
-  color: yellow;
-}
-
-h2 {
-  color: rgb(0, 0, 0);
+label:active .title {
+  opacity: 0.2;
 }
 
 .mem-sel {
@@ -54,7 +38,7 @@ h2 {
   justify-content: space-between;
 }
 
-img {
+.meme-image {
   width: 80%;
   height: 0;
   overflow: hidden;
@@ -66,29 +50,13 @@ input {
   display: none;
 }
 
-input:checked ~ img {
+input:checked ~ .meme-image {
   height: auto;
-  padding: 3vh 0;
-}
-
-input:checked ~ div .plus_icon {
-  display: block;
-}
-
-label:hover .plus_icon::before,
-input:checked ~ div .plus_icon::before {
-  transform: rotate(45deg);
-  left: 0;
-}
-
-label:hover .plus_icon::after,
-input:checked ~ div .plus_icon::after {
-  transform: rotate(-45deg);
-  top: 43%;
+  padding: 2vh 0;
 }
 
 input:checked ~ div .title {
-  color: rgb(0, 0, 0);
+  color: black;
 }
 
 label {
@@ -104,10 +72,26 @@ label {
     color: black;
   }
 
-  label:hover img {
+  label:hover .meme-image {
     height: auto;
     padding: 3vh 0;
-    transition: 1s ease;
+    transition: all 0.7s;
+  }
+
+  label:hover .plus {
+    opacity: 1;
+    width: 3vh;
+    transform: rotate(45deg);
+    transition: all 0.7s;
+  }
+
+  .container:hover .plus {
+    opacity: 1;
+    width: 3vh;
+  }
+
+  .container:hover .title {
+    color: black;
   }
 }
 
@@ -143,28 +127,12 @@ label {
   }
 }
 
-.container:hover .title {
-  color: black;
-}
-
 label,
 .container {
   cursor: pointer;
 }
 
-.plus {
-  opacity: 0.5;
-  /* position: relative; */
-  /* right: 0;
-  top: 0; */
-  width: 4vh;
-}
-
-label:hover .plus {
-  opacity: 1;
-  position: static;
-  right: 0;
-  top: 0;
-  width: 4vh;
-  cursor: pointer;
+label .plus {
+  transform: rotate(0deg);
+  transition: all 0.7s;
 }
